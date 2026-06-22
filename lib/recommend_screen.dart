@@ -53,7 +53,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: isSelected
-            ? AppColors.primaryDark.withOpacity(0.3)
+            ? AppColors.primaryDark.withValues(alpha: 0.3)
             : AppColors.background,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
@@ -283,7 +283,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                                           decoration: BoxDecoration(
                                             color: isSelected
                                                 ? AppColors.primaryDark
-                                                      .withOpacity(0.3)
+                                                      .withValues(alpha: 0.3)
                                                 : AppColors.background,
                                             borderRadius: BorderRadius.circular(
                                               12,
@@ -333,7 +333,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: filters.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 8),
+                  separatorBuilder: (_, _) => const SizedBox(width: 8),
                   itemBuilder: (context, index) {
                     final isSelected = index == _filterIndex;
                     return GestureDetector(

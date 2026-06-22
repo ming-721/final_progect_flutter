@@ -13,7 +13,7 @@ class MypageScreen extends StatefulWidget {
 }
 
 class _MypageScreenState extends State<MypageScreen> {
-  int _navIndex = 3;
+  final int _navIndex = 3;
   int _selectedType = 0; // 레드 기본
   double _bodyValue = 0.6;
   double _acidValue = 0.4;
@@ -134,7 +134,9 @@ class _MypageScreenState extends State<MypageScreen> {
                           activeTrackColor: AppColors.primary,
                           inactiveTrackColor: AppColors.surface,
                           thumbColor: AppColors.primary,
-                          overlayColor: AppColors.primary.withOpacity(0.2),
+                          overlayColor: AppColors.primary.withValues(
+                            alpha: 0.2,
+                          ),
                           trackHeight: 3,
                         ),
                         child: Slider(
@@ -170,7 +172,9 @@ class _MypageScreenState extends State<MypageScreen> {
                           activeTrackColor: AppColors.primary,
                           inactiveTrackColor: AppColors.surface,
                           thumbColor: AppColors.primary,
-                          overlayColor: AppColors.primary.withOpacity(0.2),
+                          overlayColor: AppColors.primary.withValues(
+                            alpha: 0.2,
+                          ),
                           trackHeight: 3,
                         ),
                         child: Slider(
@@ -259,7 +263,9 @@ class _MypageScreenState extends State<MypageScreen> {
                             child: Container(
                               decoration: BoxDecoration(
                                 color: isSelected
-                                    ? AppColors.primaryDark.withOpacity(0.3)
+                                    ? AppColors.primaryDark.withValues(
+                                        alpha: 0.3,
+                                      )
                                     : AppColors.surface,
                                 borderRadius: BorderRadius.circular(12),
                                 border: Border.all(
@@ -337,7 +343,7 @@ class _MypageScreenState extends State<MypageScreen> {
           color: AppColors.surface,
           border: Border(
             top: BorderSide(
-              color: AppColors.textSub.withOpacity(0.15),
+              color: AppColors.textSub.withValues(alpha: 0.15),
               width: 1,
             ),
           ),

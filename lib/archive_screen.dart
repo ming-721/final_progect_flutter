@@ -15,7 +15,7 @@ class ArchiveScreen extends StatefulWidget {
 }
 
 class _ArchiveScreenState extends State<ArchiveScreen> {
-  int _navIndex = 2;
+  final int _navIndex = 2;
 
   void _navigateTo(int index) {
     if (index == _navIndex) return;
@@ -70,7 +70,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
                       )
                     : ListView.separated(
                         itemCount: favorites.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 12),
+                        separatorBuilder: (_, _) => const SizedBox(height: 12),
                         itemBuilder: (context, index) {
                           final wine = favorites[index];
                           return GestureDetector(
@@ -158,7 +158,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
           color: AppColors.surface,
           border: Border(
             top: BorderSide(
-              color: AppColors.textSub.withOpacity(0.15),
+              color: AppColors.textSub.withValues(alpha: 0.15),
               width: 1,
             ),
           ),
