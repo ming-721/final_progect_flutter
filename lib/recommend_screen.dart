@@ -505,6 +505,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
             ),
           ),
         ),
+        //AI(claude) 참조
         child: SafeArea(
           top: false,
           child: BottomNavigationBar(

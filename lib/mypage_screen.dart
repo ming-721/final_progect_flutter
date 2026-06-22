@@ -125,9 +125,8 @@ class _MypageScreenState extends State<MypageScreen> {
                           );
                         }),
                       ),
+                      //AI(claude) 참조
                       const SizedBox(height: 24),
-
-                      // 바디감 슬라이더
                       _sectionTitle('선호하는 바디감'),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
@@ -164,8 +163,6 @@ class _MypageScreenState extends State<MypageScreen> {
                         ],
                       ),
                       const SizedBox(height: 24),
-
-                      // 산도 슬라이더
                       _sectionTitle('선호하는 산도'),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
@@ -202,8 +199,6 @@ class _MypageScreenState extends State<MypageScreen> {
                         ],
                       ),
                       const SizedBox(height: 24),
-
-                      // 선호 빈티지
                       _sectionTitle('선호하는 빈티지'),
                       const SizedBox(height: 12),
                       Row(
@@ -238,8 +233,6 @@ class _MypageScreenState extends State<MypageScreen> {
                         }),
                       ),
                       const SizedBox(height: 24),
-
-                      // 선호 맛 노트
                       _sectionTitle('선호하는 맛 노트'),
                       const SizedBox(height: 12),
                       GridView.builder(
@@ -302,8 +295,6 @@ class _MypageScreenState extends State<MypageScreen> {
                         },
                       ),
                       const SizedBox(height: 28),
-
-                      // 저장하기 버튼
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(

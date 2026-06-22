@@ -15,6 +15,7 @@ class _LandingScreenState extends State<LandingScreen>
   late AnimationController _controller;
   late Animation<double> _fadeIn;
 
+  //AI(claude) 참조
   @override
   void initState() {
     super.initState();

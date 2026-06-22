@@ -60,6 +60,7 @@ class _ArchiveScreenState extends State<ArchiveScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+              //AI(claude) 참조
               Expanded(
                 child: favorites.isEmpty
                     ? const Center(
