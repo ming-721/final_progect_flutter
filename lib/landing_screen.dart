@@ -16,7 +16,7 @@ class LandingScreen extends StatelessWidget {
           Positioned.fill(
             child: ColorFiltered(
               colorFilter: ColorFilter.mode(
-                Colors.black.withOpacity(0.35),
+                Colors.black.withValues(alpha: 0.35),
                 BlendMode.darken,
               ),
               child: Image.asset('assets/landing.png', fit: BoxFit.cover),

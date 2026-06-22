@@ -21,7 +21,7 @@ class MoodScreen extends StatefulWidget {
 
 class _MoodScreenState extends State<MoodScreen> {
   int _selectedIndex = 0;
-  int _navIndex = 0;
+  final int _navIndex = 0;
 
   final List<MoodItem> moods = [
     MoodItem('편안한', Icons.self_improvement),
@@ -161,7 +161,7 @@ class _MoodScreenState extends State<MoodScreen> {
           color: AppColors.surface,
           border: Border(
             top: BorderSide(
-              color: AppColors.textSub.withOpacity(0.15),
+              color: AppColors.textSub.withValues(alpha: 0.15),
               width: 1,
             ),
           ),

@@ -3,27 +3,7 @@ import 'colors.dart';
 import 'mood_screen.dart';
 import 'archive_screen.dart';
 import 'mypage_screen.dart';
-
-//AI(claude) 참조
-class WineItem {
-  final String year;
-  final String nameKr;
-  final String nameEn;
-  final String origin;
-  final double rating;
-  final String imageAsset;
-  final String category;
-
-  WineItem({
-    required this.year,
-    required this.nameKr,
-    required this.nameEn,
-    required this.origin,
-    required this.rating,
-    required this.imageAsset,
-    required this.category,
-  });
-}
+import 'wine_data.dart';
 
 class RecommendScreen extends StatefulWidget {
   const RecommendScreen({super.key});
@@ -34,40 +14,10 @@ class RecommendScreen extends StatefulWidget {
 }
 
 class _RecommendScreenState extends State<RecommendScreen> {
-  int _navIndex = 1; // 추천 탭이 현재 화면
-  int _filterIndex = 1; // 레드 기본 선택
+  final int _navIndex = 1;
+  int _filterIndex = 1;
 
   final List<String> filters = ['전체', '레드', '화이트', '로제', '스파클링'];
-
-  final List<WineItem> wines = [
-    WineItem(
-      year: '2021',
-      nameKr: '조쉬 셀러 선정 리저브\n카베르네 소비뇽',
-      nameEn: 'Josh Cellars Reserve Cabernet Sauvignon',
-      origin: '미국 · 캘리포니아',
-      rating: 4.3,
-      imageAsset: 'assets/redwine1.png',
-      category: '레드',
-    ),
-    WineItem(
-      year: '2022',
-      nameKr: '아포씩 레드',
-      nameEn: 'Apothic Red',
-      origin: '미국 · 캘리포니아',
-      rating: 4.2,
-      imageAsset: 'assets/redwine2.png',
-      category: '레드',
-    ),
-    WineItem(
-      year: '2021',
-      nameKr: '보글 메를로',
-      nameEn: 'Bogle Merlot',
-      origin: '미국 · 캘리포니아',
-      rating: 4.1,
-      imageAsset: 'assets/redwine3.png',
-      category: '레드',
-    ),
-  ];
 
   void _navigateTo(int index) {
     if (index == _navIndex) return;
@@ -141,7 +91,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: filters.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 8),
+                  separatorBuilder: (_, _) => const SizedBox(width: 8),
                   itemBuilder: (context, index) {
                     final isSelected = index == _filterIndex;
                     return GestureDetector(
@@ -193,13 +143,26 @@ class _RecommendScreenState extends State<RecommendScreen> {
                                 width: double.infinity,
                                 fit: BoxFit.cover,
                               ),
-                              const Positioned(
+                              //AI(claude) 참조
+                              Positioned(
                                 top: 12,
                                 right: 12,
-                                child: Icon(
-                                  Icons.favorite_border,
-                                  color: Colors.white,
-                                  size: 22,
+                                child: IconButton(
+                                  onPressed: () {
+                                    setState(
+                                      () => wines[index].isFavorite =
+                                          !wines[index].isFavorite,
+                                    );
+                                  },
+                                  icon: Icon(
+                                    wines[index].isFavorite
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    color: wines[index].isFavorite
+                                        ? AppColors.primary
+                                        : Colors.white,
+                                    size: 22,
+                                  ),
                                 ),
                               ),
                             ],
@@ -295,7 +258,7 @@ class _RecommendScreenState extends State<RecommendScreen> {
           color: AppColors.surface,
           border: Border(
             top: BorderSide(
-              color: AppColors.textSub.withOpacity(0.15),
+              color: AppColors.textSub.withValues(alpha: 0.15),
               width: 1,
             ),
           ),
